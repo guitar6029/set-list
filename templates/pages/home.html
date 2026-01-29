@@ -1,0 +1,19 @@
+<h1>SetList</h1>
+<p>Collect , organize, and share playlists across providers</p>
+
+<h2>Recent Playlists</h2>
+
+{% if playlists %}
+<ul>
+  {% for p in playlists%}
+  <li>
+    {% comment %} image playlist {% endcomment %}
+    <strong>{{ p.title}}</strong>
+    - by {{ p.owner.username}} - last updated {{ p.updated_at}} {% comment %}
+    Number of Liked/Favorited {% endcomment %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No playlists yet.</p>
+{% endif%}
