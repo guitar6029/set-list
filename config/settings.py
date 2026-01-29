@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "playlists",
     "pages",
     "accounts",
+    "profiles",
 ]
 
 MIDDLEWARE = [
