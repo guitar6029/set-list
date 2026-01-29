@@ -4,8 +4,10 @@
 <ul>
   {% for p in playlists %}
   <li>
-    <strong>{{p.title }}</strong>
-    - {{ p.visibility}} - updated {{ p.updated_at }}
+    <a href="{% url 'playlists:playlist_detail' p.id %}">
+      <strong>{{ p.title }}</strong>
+    </a>
+    — {{ p.visibility }} — updated {{ p.updated_at }}
   </li>
   {% endfor %}
 </ul>

@@ -1,0 +1,39 @@
+<h1>{{ playlist.title }}</h1>
+<p>{{ playlist.description }}</p>
+
+<p>Visibility: <strong>{{ playlist.visibility }}</strong></p>
+
+<hr />
+
+{% if items %}
+<ol>
+  {% for item in items %}
+  <li>
+    {% if item.cached_title %}
+    <strong>{{ item.cached_title }}</strong>
+    {% else %}
+    <strong>{{ item.canonical_url }}</strong>
+    {% endif %}
+
+    <div>
+      Provider: {{ item.provider }} {% if item.provider_id%}
+      {{item.provider_id}} {% endif%}
+    </div>
+
+    <div>
+      <a
+        href="{{ item.canonical_url }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open in provider
+      </a>
+    </div>
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+<p>No items yet.</p>
+{% endif %}
+
+<p><a href="{% url 'playlists:my_playlists' %}">← Back to My Playlists</a></p>
