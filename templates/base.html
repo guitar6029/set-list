@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %}SetList{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'playlists:my_playlists' %}">My Playlists</a>
+
+        <form action="{% url 'logout' %}" method="post" style="display: inline">
+          {% csrf_token %}
+          <button type="submit">Logout</button>
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'accounts:signup' %}">Sign up</a>
+        {% endif %}
+      </nav>
+    </header>
+
+    <hr />
+
+    <main>{% block content %}{% endblock %}</main>
+  </body>
+</html>
