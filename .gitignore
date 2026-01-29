@@ -24,3 +24,6 @@ Thumbs.db
 # Environment variables
 .env
 *.env
+
+# Django local database
+db.sqlite3
