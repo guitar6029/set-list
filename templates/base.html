@@ -10,6 +10,7 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
     <link rel="stylesheet" href="{% static 'css/theme.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/utils.css' %}" />
   </head>
   <body>
     <header class="container">
@@ -32,6 +33,6 @@
 
     <hr />
 
-    <main>{% block content %}{% endblock %}</main>
+    <main class="container p-4">{% block content %}{% endblock %}</main>
   </body>
 </html>

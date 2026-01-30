@@ -1,3 +1,4 @@
+{% extends 'base.html' %} {% block content %}
 <h1>{{ playlist.title }}</h1>
 <p>{{ playlist.description }}</p>
 
@@ -37,3 +38,5 @@
 {% endif %}
 
 <p><a href="{% url 'playlists:my_playlists' %}">← Back to My Playlists</a></p>
+
+{% endblock %}

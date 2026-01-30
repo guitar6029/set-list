@@ -1,16 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
 <h1>My Playlists</h1>
 
 {% if playlists %}
-<ul>
+<div class="flex-row flex-wrap">
   {% for p in playlists %}
-  <li>
+  <div class="flex-col">
     <a href="{% url 'playlists:playlist_detail' p.id %}">
       <strong>{{ p.title }}</strong>
     </a>
     — {{ p.visibility }} — updated {{ p.updated_at }}
-  </li>
+  </div>
   {% endfor %}
-</ul>
+</div>
 {% else %}
 <p>No playlists yet.</p>
-{% endif %}
+{% endif %} {% endblock %}
