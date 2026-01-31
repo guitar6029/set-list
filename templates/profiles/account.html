@@ -1,11 +1,27 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 <h1>Account</h1>
-<div class="flex-row gap-4">
-  <img class="avatar-img" src="{% static 'img/avatars/DEFAULT.jpg' %} " />
-  <img class="avatar-img" src="{% static 'img/avatars/BOOK_WORM.jpg' %} " />
-  <img class="avatar-img" src="{% static 'img/avatars/GUITARIST.jpg' %} " />
-  <img class="avatar-img" src="{% static 'img/avatars/ASTRONAUT.jpg' %} " />
-</div>
+<form method="post" action="{% url 'profiles:update_avatar' %}">
+  {% csrf_token %}
+  <div class="flex-row flex-wrap gap-4">
+    {% for a in avatars %}
+    <div class="flex-col gap-2">
+      <img
+        class="avatar-img {% if a.is_selected %}avatar-active{% endif %}"
+        src="{% static 'img/avatars/' %}{{ a.filename }}"
+      />
+      <div class="flex-row items-center gap-2">
+        <label>{{ a.label}}</label>
+        {% if a.is_selected %}
+        <input type="radio" name="avatar" value="{{ a.value }}" checked />
+        {% else %}
+        <input type="radio" name="avatar" value="{{ a.value }}" />
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <button class="mt-4" type="submit">Update Avatar</button>
+</form>
 <a href="{% url 'password_change'  %}">Change password</a>
 
 {% endblock %}
