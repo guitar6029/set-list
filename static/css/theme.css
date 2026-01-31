@@ -304,3 +304,8 @@ hr {
   border-top: 1px solid var(--border);
   margin: 18px 0;
 }
+
+.logout-btn {
+  padding: 1rem;
+  width: fit-content;
+}

@@ -15,7 +15,7 @@
   </head>
   <body>
     <header class="container">
-      <nav>
+      <nav class="flex-row items-center gap-2">
         <a href="/">Home</a>
 
         {% if user.is_authenticated %}
@@ -24,7 +24,7 @@
 
         <form action="{% url 'logout' %}" method="post" style="display: inline">
           {% csrf_token %}
-          <button type="submit">Logout</button>
+          <button class="logout-btn" type="submit">Logout</button>
         </form>
         {% else %}
         <a href="{% url 'login' %}">Login</a>
