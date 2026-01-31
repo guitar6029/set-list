@@ -2,5 +2,15 @@
   width: 150px;
   height: 100%;
   border-radius: 1rem;
-  border: 2px solid var(--primary);
+  border-width: 2px;
+  border-style: solid;
+  object-fit: cover;
+}
+
+.avatar-active {
+  border-color: var(--primary);
+}
+
+.avatar-default {
+  border-color: transparent;
 }
